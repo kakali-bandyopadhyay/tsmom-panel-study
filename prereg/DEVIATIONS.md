@@ -293,5 +293,32 @@ inferred from an `ls-remote` that failed with `SEC_E_NO_CREDENTIALS` — a crede
 not a missing ref. **A failed network call is not evidence of absence.** Both timestamps are
 public and the claim in README and §12 stands.
 
-**Defects 2, 3 and 5 remain open.**
+**Defect 2 — FIXED 2026-11-01.** `data/snapshot_manifest.json` now records the Stooq
+cross-check per instrument: eighteen records, `"status": "unavailable"`, which is what §2.1
+requires. A `stooq_crosscheck_provenance` block states that the records were reconstructed —
+the pull-time manifest wrote an empty list — and that no comparison was obtained for any
+instrument. The status follows `fetch_data.py::crosscheck_stooq()`'s failure branch, which is
+what actually happened for all eighteen URL forms tried; no correlation, overlap or level
+ratio is invented.
+
+**Defect 3 — FIXED 2026-11-01** (by the author). `data/SOURCES.md` §3 now documents the v2
+audit as the method — full series including split days, split factor applied, tolerance 1e-9,
+worst deviation 9.44e-12 — and lists the three v1 defects as defects.
+
+**Defect 5 — FIXED 2026-11-01.** `src/power_sim.py` no longer reads an uncommitted `artefact1/`
+directory. The simulation consumes exactly two objects, the correlation matrix and the vector
+of weekly sigmas, so those are committed as `data/breadth_inputs.json` with the source
+snapshot's SHA-256 (`e4b78952…`), and `scripts/build_breadth_inputs.py` regenerates the file
+from a local copy of the pull. `python src/study3.py` runs from a fresh clone and reproduces
+§5 exactly: 7.8% size at time FE with critical value **2.152**, instrument + time 13.3% and
+mean t −0.44, class FE 9.7% with critical value 2.365, 55.5% rejection at realised Sharpe 0.53,
+85.8% at 0.83, MDE 0.77 bracketed 0.53–0.83.
+
+What defect 5 did **not** cover, and what is still true: `src/breadth.py`, `src/power.py`,
+`src/branch_eval.py` and `src/residual_breadth.py` still require a local copy of the Yahoo
+breadth pull at `artefact1/breadth_snapshot_2005.csv`. That file is not committed, and no
+committed script regenerates that exact pull — `src/breadth.py` fetches a different,
+2011-onward snapshot. The §4 breadth numbers are therefore checkable against a local pull but
+not reproducible from a bare clone. Recorded rather than papered over, because committing the
+return series would be committing the vendor data the licence terms forbid.
 

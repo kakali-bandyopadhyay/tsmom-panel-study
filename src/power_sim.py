@@ -13,13 +13,13 @@ regressor and outcome, quantities that are mechanically related -- and because a
 variation is small enough that the induced covariance dominates.
 """
 
-import os
+import json
 import time
+from pathlib import Path
 
 import numpy as np
-import pandas as pd
 
-from breadth import OUTDIR, TICKERS
+from breadth import TICKERS
 
 SEED = 20261101
 REPS = 1000
@@ -29,14 +29,26 @@ HAC_LAG = 52
 TARGETS = [0.2, 0.3, 0.5]
 CRIT = 1.959964
 
+REPO = Path(__file__).resolve().parent.parent
+INPUTS = REPO / "data" / "breadth_inputs.json"
+
 
 def load_panel():
-    df = pd.read_csv(os.path.join(OUTDIR, "breadth_snapshot_2005.csv"), index_col=0, parse_dates=True)
-    cols = [c for c in TICKERS if c in df.columns]
-    wk = df[cols].resample("W-FRI").last()
-    wk = wk[wk.index >= "2011-01-01"].dropna(how="any")
-    rets = wk.pct_change(fill_method=None).dropna(how="any")
-    return rets.corr().values, rets.std().values
+    """Correlation and weekly sigma of the breadth pull — the simulation's only inputs.
+
+    Read from the committed derived file rather than re-derived from the pull: the pull
+    is Yahoo data and is not in the repository, and a fresh pull would be a different
+    panel wearing the same numbers. `data/breadth_inputs.json` records the SHA-256 of the
+    snapshot it came from, so the derivation is checkable against a local copy with
+    `scripts/build_breadth_inputs.py`.
+    """
+    blob = json.loads(INPUTS.read_text(encoding="utf-8"))
+    corr = np.array(blob["correlation"], dtype=float)
+    sigma = np.array(blob["sigma_weekly"], dtype=float)
+    if corr.shape != (len(TICKERS), len(TICKERS)) or sigma.shape != (len(TICKERS),):
+        raise SystemExit(f"{INPUTS}: expected an {len(TICKERS)}x{len(TICKERS)} correlation "
+                         f"and {len(TICKERS)} sigmas, got {corr.shape} and {sigma.shape}")
+    return corr, sigma
 
 
 def simulate(theta, L, sigma, reps, rng):

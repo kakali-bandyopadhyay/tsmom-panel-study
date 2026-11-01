@@ -359,7 +359,108 @@
       "p999_abs_dev": 0.0
     }
   ],
-  "stooq_crosscheck": [],
+  "stooq_crosscheck": [
+    {
+      "ticker": "SPY",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "QQQ",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "IWM",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "EFA",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "EEM",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "EWJ",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "TLT",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "IEF",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "TIP",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "LQD",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "BWX",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "GLD",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "SLV",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "DBC",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "USO",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "FXE",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "FXY",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    },
+    {
+      "ticker": "IYR",
+      "status": "unavailable",
+      "note": "Stooq returned an HTML interstitial, not CSV"
+    }
+  ],
+  "stooq_crosscheck_provenance": {
+    "recorded": "2026-11-01",
+    "why": "the pull-time manifest wrote an empty list; PREREGISTRATION.md section 2.1 requires the failure recorded per instrument as unavailable",
+    "basis": "scripts/fetch_data.py crosscheck_stooq() failure branch: parse_stooq() returned None because the response body was HTML",
+    "no_comparison_obtained": "no correlation, overlap or level ratio exists for any instrument",
+    "see": [
+      "data/SOURCES.md section 4",
+      "prereg/PREREGISTRATION.md section 2.1"
+    ]
+  },
   "environment": {
     "python": "3.14.7",
     "pandas": "3.0.5"
