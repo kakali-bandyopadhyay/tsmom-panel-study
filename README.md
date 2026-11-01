@@ -5,7 +5,7 @@ ETFs, 2011–2026, asking whether the effect has decayed below detectability.
 
 ## Identifiers
 
-- **OSF pre-registration:** `10.17605/OSF.IO/REGISTRATIONID`
+- **OSF pre-registration:** [10.17605/OSF.IO/W86XT](https://doi.org/10.17605/OSF.IO/W86XT)
 - **ORCID:** https://orcid.org/0000-0002-6130-9816
 - **Git tag:** `v0.1-prereg` (commit `2d3ab67`)
 
