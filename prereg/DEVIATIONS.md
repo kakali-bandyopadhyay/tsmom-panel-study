@@ -257,3 +257,41 @@ points at. Recorded so they are fixed deliberately rather than discovered by a r
    `artefact1`; neither exists in the repository. §12 claims the code producing §4 and §5 is
    committed, which is true, but it does not run without an uncommitted scratch directory.
 
+---
+
+### Entry 9 — §9's outcome table has no row for the observed outcome
+
+**What happened.** §9 pre-commits a reading to each possible outcome. The observed outcome —
+a positive, composition-robust estimate that this design cannot distinguish from zero — is not
+among them. The table anticipated a null, a composition failure, and a positive result inside
+or above the published range. It did not anticipate *positive but unresolvable*, which is what
+a design whose MDE (0.77) exceeds the effect it is measuring (≈0.5) will produce whenever the
+effect is real.
+
+**Handling.** The reading is stated in `RESULTS.md` and is flagged there as **post hoc**. The
+gap is recorded here rather than patched into the frozen pre-registration.
+
+**Cost to the claim.** The numbers are unaffected. What is affected is interpretive
+discipline: the reading was not pre-committed, so a reader cannot verify it was not chosen
+after seeing the data. That is the whole reason §9 exists, and this is the one place in the
+study where it failed.
+
+---
+
+## Corrections to the repository defect list
+
+**Defect 1 — FIXED 2026-11-01.** `data/snapshot_manifest.json` now carries the v2 audit
+(worst deviation 9.44e-12, `passed: true`) plus an `audit_correction` block recording the
+superseded v1 numbers (USO 7.854, EWJ 3.018, BWX 0.4976), naming the three v1 defects, and
+pointing at `data/audit.json` and entry 1. The panel SHA-256 is unchanged — only the
+verification record was corrected, not the data.
+
+**Defect 4 — WITHDRAWN, false positive.** `v0.1-prereg` **is** on the remote.
+`git ls-remote --tags origin` returns both `refs/tags/v0.1-prereg` (`8723e0a9`, the annotated
+tag object) and `refs/tags/v0.1-prereg^{}` (`2d3ab67`, the commit). The original report was
+inferred from an `ls-remote` that failed with `SEC_E_NO_CREDENTIALS` — a credential failure,
+not a missing ref. **A failed network call is not evidence of absence.** Both timestamps are
+public and the claim in README and §12 stands.
+
+**Defects 2, 3 and 5 remain open.**
+
