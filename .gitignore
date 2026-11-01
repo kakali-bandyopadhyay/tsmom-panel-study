@@ -1,0 +1,19 @@
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Data: vendor terms forbid redistribution, files are large, and the hashes plus the
+# fetch script give reproducibility without either problem. Anyone can re-pull and
+# verify against the committed manifest.
+data/raw/
+data/snapshots/
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

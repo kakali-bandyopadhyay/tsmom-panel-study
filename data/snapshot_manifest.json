@@ -1,0 +1,409 @@
+{
+  "snapshot_id": "20261101T130536Z-44dced9f",
+  "pulled_utc": "20261101T130536Z",
+  "source": "tiingo",
+  "window": {
+    "start": "2011-01-01",
+    "end": "2026-10-30"
+  },
+  "instruments": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "EFA",
+    "EEM",
+    "EWJ",
+    "TLT",
+    "IEF",
+    "TIP",
+    "LQD",
+    "BWX",
+    "GLD",
+    "SLV",
+    "DBC",
+    "USO",
+    "FXE",
+    "FXY",
+    "IYR"
+  ],
+  "total_return_method": {
+    "definition": "ratio of adjClose; dividend- and split-adjusted",
+    "never": "an absolute adjusted level (retroactive factor is a lookahead vector)"
+  },
+  "panel_sha256": "44dced9f55ace2997ad17bbbec5202d472810d342fd14e583ba5af48d8c603c1",
+  "files": {
+    "SPY": {
+      "bytes": 1051575,
+      "sha256": "cc7454627d2bc902ee1d622724297ed3de38531de79562e9d1610b35269a7677",
+      "url": "https://api.tiingo.com/tiingo/daily/SPY/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "QQQ": {
+      "bytes": 1035627,
+      "sha256": "f65d13ccb9c572a28eb2d43b4c7c7ef6c5f51f033242414afe6e4e950a8bea68",
+      "url": "https://api.tiingo.com/tiingo/daily/QQQ/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "IWM": {
+      "bytes": 1036871,
+      "sha256": "051468012a4d68f533948e51fb78573c5564325dc60ea537b6a0f33fd3636c94",
+      "url": "https://api.tiingo.com/tiingo/daily/IWM/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "EFA": {
+      "bytes": 1011989,
+      "sha256": "8921776f64ddd7ac84a0efa7874561e10b6a0800ac6fae154ee179e6e57742c5",
+      "url": "https://api.tiingo.com/tiingo/daily/EFA/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "EEM": {
+      "bytes": 1011350,
+      "sha256": "fe28d891e951e7fb1dcf58c8f81f4e26a033df6ca75d24602bba4946e91364ef",
+      "url": "https://api.tiingo.com/tiingo/daily/EEM/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "EWJ": {
+      "bytes": 1003882,
+      "sha256": "4f056065509c5d8426d900eb8bf231dda138c6bc4a6fb2e7108561e0b37dd887",
+      "url": "https://api.tiingo.com/tiingo/daily/EWJ/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "TLT": {
+      "bytes": 1024685,
+      "sha256": "5cfb28dd4f846e772551b7ad8c104fc61cfc2cf43a4b3d3500738f34a920fa70",
+      "url": "https://api.tiingo.com/tiingo/daily/TLT/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "IEF": {
+      "bytes": 1017365,
+      "sha256": "fcd00212123b0f22f0c712f73c8448734e790d652d01a81732a25e31ab965b5b",
+      "url": "https://api.tiingo.com/tiingo/daily/IEF/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "TIP": {
+      "bytes": 1021941,
+      "sha256": "3c764c5db7bafea2a4fa5d089627bac75e32769d4b95472376b1c9f67661b094",
+      "url": "https://api.tiingo.com/tiingo/daily/TIP/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "LQD": {
+      "bytes": 1028616,
+      "sha256": "b0358ef6bf0166e7b5e8257312b309fa527ae8499ddd63021cc6dea10001e80c",
+      "url": "https://api.tiingo.com/tiingo/daily/LQD/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "BWX": {
+      "bytes": 998835,
+      "sha256": "71d2a278a13d3f98752682258e8b7c4aaf8af3503127767c041a0ae24d1f5893",
+      "url": "https://api.tiingo.com/tiingo/daily/BWX/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "GLD": {
+      "bytes": 913996,
+      "sha256": "e55b5e7894036385ce9a55e893daf5b3eec655df5f02ca1e87622beee8a840a9",
+      "url": "https://api.tiingo.com/tiingo/daily/GLD/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "SLV": {
+      "bytes": 886386,
+      "sha256": "214cd2c7c5753ef5aba0a434f74b419fe46994695ec98a461ed3c36ee4d0b735",
+      "url": "https://api.tiingo.com/tiingo/daily/SLV/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "DBC": {
+      "bytes": 997300,
+      "sha256": "85fa3f32ba7d1571b598d7f40ab8becb087d643c4b5cdbdd075268950e26d501",
+      "url": "https://api.tiingo.com/tiingo/daily/DBC/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "USO": {
+      "bytes": 886669,
+      "sha256": "ab903469672e52ea3c66a2c4591fe06f180bad408bdfe1ff042d4c385a1ca191",
+      "url": "https://api.tiingo.com/tiingo/daily/USO/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "FXE": {
+      "bytes": 1021168,
+      "sha256": "00d07101937588412ee2b606d7fed0150c830e24f78a197ff3f75bc4294fbf4a",
+      "url": "https://api.tiingo.com/tiingo/daily/FXE/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "FXY": {
+      "bytes": 875282,
+      "sha256": "cf7e62cc91e05cfa18ac0eff09ca6623ec4335ad4d6eb6a7f9bea9ed09acbfb8",
+      "url": "https://api.tiingo.com/tiingo/daily/FXY/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    },
+    "IYR": {
+      "bytes": 1007880,
+      "sha256": "fc6b25f812338dc1b980c54a0f93d7fe87d9f798438088237a7f80b011db7490",
+      "url": "https://api.tiingo.com/tiingo/daily/IYR/prices?startDate=2011-01-01&endDate=2026-10-30&format=json&resampleFreq=daily",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30"
+    }
+  },
+  "total_return_audit": [
+    {
+      "ticker": "SPY",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 63,
+      "max_abs_dev_non_split": 0.007154328648514698,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 6.960413758988921e-05
+    },
+    {
+      "ticker": "QQQ",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 65,
+      "max_abs_dev_non_split": 0.00562172041551022,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 3.398138743589496e-05
+    },
+    {
+      "ticker": "IWM",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 63,
+      "max_abs_dev_non_split": 0.008637414106259851,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 5.339945757743505e-05
+    },
+    {
+      "ticker": "EFA",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 32,
+      "max_abs_dev_non_split": 0.024556055666751776,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 0.00011884833976446362
+    },
+    {
+      "ticker": "EEM",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 33,
+      "max_abs_dev_non_split": 0.02117816566617149,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 8.382691448190857e-05
+    },
+    {
+      "ticker": "EWJ",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [
+        "2016-11-07"
+      ],
+      "n_split_days": 1,
+      "n_dividend_days": 31,
+      "max_abs_dev_non_split": 3.0175686591274657,
+      "max_abs_split_day_jump_in_adj": 0.007067851374225942,
+      "mean_daily_div_yield": 7.210063506216729e-05
+    },
+    {
+      "ticker": "TLT",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 189,
+      "max_abs_dev_non_split": 0.004272663000791793,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 0.00011435813196060812
+    },
+    {
+      "ticker": "IEF",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 189,
+      "max_abs_dev_non_split": 0.0036050834602568095,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 8.842723428545874e-05
+    },
+    {
+      "ticker": "TIP",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 130,
+      "max_abs_dev_non_split": 0.01288098621929424,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 0.00010431256829260847
+    },
+    {
+      "ticker": "LQD",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 189,
+      "max_abs_dev_non_split": 0.004312243950599217,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 0.00014364654554217427
+    },
+    {
+      "ticker": "BWX",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [
+        "2016-09-29"
+      ],
+      "n_split_days": 1,
+      "n_dividend_days": 152,
+      "max_abs_dev_non_split": 0.497584541065507,
+      "max_abs_split_day_jump_in_adj": 0.0013802622501811745,
+      "mean_daily_div_yield": 5.529567147083045e-05
+    },
+    {
+      "ticker": "GLD",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 0,
+      "max_abs_dev_non_split": 0.0,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 0.0
+    },
+    {
+      "ticker": "SLV",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 0,
+      "max_abs_dev_non_split": 0.0,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 0.0
+    },
+    {
+      "ticker": "DBC",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 6,
+      "max_abs_dev_non_split": 0.0532043745228215,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 4.283309113721984e-05
+    },
+    {
+      "ticker": "USO",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [
+        "2020-04-29"
+      ],
+      "n_split_days": 1,
+      "n_dividend_days": 0,
+      "max_abs_dev_non_split": 7.854460093896715,
+      "max_abs_split_day_jump_in_adj": 0.05633802816901423,
+      "mean_daily_div_yield": 0.0
+    },
+    {
+      "ticker": "FXE",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 57,
+      "max_abs_dev_non_split": 0.001999780083450692,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 1.4105391463591341e-05
+    },
+    {
+      "ticker": "FXY",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 0,
+      "max_abs_dev_non_split": 0.0,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 0.0
+    },
+    {
+      "ticker": "IYR",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "split_days": [],
+      "n_split_days": 0,
+      "n_dividend_days": 63,
+      "max_abs_dev_non_split": 0.01419355067259688,
+      "max_abs_split_day_jump_in_adj": 0.0,
+      "mean_daily_div_yield": 0.00012931365051271993
+    }
+  ],
+  "stooq_crosscheck": [],
+  "environment": {
+    "python": "3.14.7",
+    "pandas": "3.0.5"
+  }
+}
