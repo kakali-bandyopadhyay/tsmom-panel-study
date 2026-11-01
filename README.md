@@ -1,5 +1,9 @@
 # tsmom-panel-study
 
+**Post-registration.** The OSF registration (`w86xt`, DOI 10.17605/OSF.IO/W86XT) is the frozen
+design and is unchanged. This repository carries the post-registration record: the first result,
+the withdrawn bound, and the deviations log.
+
 A pre-registered test of time-series momentum across a cross-asset panel of eighteen liquid
 ETFs, 2011–2026, asking whether the effect has decayed below detectability.
 
