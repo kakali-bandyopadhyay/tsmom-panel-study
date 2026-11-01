@@ -1,0 +1,152 @@
+{
+  "snapshot": {
+    "id": "20261101T130536Z-44dced9f",
+    "dir": "20261101T130536Z-44dced9f",
+    "panel_sha256": "44dced9f55ace2997ad17bbbec5202d472810d342fd14e583ba5af48d8c603c1",
+    "verified": true
+  },
+  "design_reconciliation": {
+    "weeks": {
+      "computed": 826,
+      "registered": 826,
+      "match": true
+    },
+    "signal_obs": {
+      "computed": 774,
+      "registered": 774,
+      "match": true
+    },
+    "B_signal": {
+      "computed": 4.0412,
+      "registered": 4.0412,
+      "match": true
+    },
+    "B_returns": {
+      "computed": 4.687,
+      "registered": 4.687,
+      "match": true
+    },
+    "all_match": true,
+    "Delta_B": 0.0012,
+    "tolerance": 0.4
+  },
+  "sample": {
+    "weeks_closes": 826,
+    "signal_obs": 774,
+    "regression_pairs": 773,
+    "portfolio_weeks": 773,
+    "first": "2011-01-07",
+    "last": "2026-10-30"
+  },
+  "portfolio": {
+    "ann_return_arith": 0.24629344604324854,
+    "ann_vol": 0.46840773550403575,
+    "weekly_mean": 0.004736412423908626,
+    "weekly_vol": 0.06495646569937596,
+    "sharpe": 0.5258099458545908,
+    "ci_bootstrap": {
+      "method": "stationary block bootstrap, mean block 13w",
+      "reps": 20000,
+      "seed": 20261101,
+      "level": 0.95,
+      "lo": 0.03761649731457781,
+      "hi": 1.0539240477160519,
+      "median": 0.5309654080856835,
+      "p_gt_bound": 0.17915
+    },
+    "ci_lo2002": {
+      "method": "Lo (2002) asymptotic, skew/kurtosis adjusted",
+      "lo": -0.0009013539741501431,
+      "hi": 1.052521245683332,
+      "se": 0.2687351909671509,
+      "skew": -0.8734700214906372,
+      "kurtosis": 7.3781545472015955
+    },
+    "worst_week": -0.4034703095532444,
+    "best_week": 0.2389268661451639
+  },
+  "regression": {
+    "spec": "pooled OLS, time FE only, Newey-West Bartlett lag 52",
+    "n_obs": 13914,
+    "n_weeks": 773,
+    "n_instruments": 18,
+    "primary_standardised": {
+      "t": 2.078549716812803,
+      "beta": 0.000553050086972197
+    },
+    "variant_raw_signal": {
+      "t": 1.7659721736686582,
+      "beta": 0.00335565177979194
+    },
+    "crit_nominal": 1.959964,
+    "crit_corrected": 2.152,
+    "reject_null_nominal": true,
+    "reject_null_corrected": false
+  },
+  "robustness": {
+    "best_instrument": "QQQ",
+    "solo_sharpe": {
+      "SPY": 0.6042265801897192,
+      "QQQ": 0.7556070577424951,
+      "IWM": -0.02098881101436007,
+      "EFA": -0.03278333647034912,
+      "EEM": 0.14914065016740177,
+      "EWJ": 0.21860990337777117,
+      "TLT": -0.18680766062212245,
+      "IEF": 0.2876867535628408,
+      "TIP": 0.18290245104178252,
+      "LQD": 0.1306797091116344,
+      "BWX": -0.05138311966154881,
+      "GLD": 0.34668117005057403,
+      "SLV": 0.33593632142731195,
+      "DBC": 0.5228135102500683,
+      "USO": 0.3702109817310311,
+      "FXE": 0.32066911878313414,
+      "FXY": 0.26617717150579484,
+      "IYR": -0.07322315657603541
+    },
+    "exclude_best": {
+      "sharpe": 0.4548417797180501,
+      "ci_bootstrap": {
+        "method": "stationary block bootstrap, mean block 13w",
+        "reps": 20000,
+        "seed": 20261101,
+        "level": 0.95,
+        "lo": -0.033258331208604816,
+        "hi": 0.9773688171307787,
+        "median": 0.45893235622989437,
+        "p_gt_bound": 0.11535
+      },
+      "t": 1.6852667380967927,
+      "beta": 0.00047926834398827827,
+      "n_weeks": 773,
+      "ci_upper_below_bound": false,
+      "regression_null": true,
+      "n_instruments": 17,
+      "excluded": "QQQ",
+      "survives": false,
+      "diagnostic_only": true
+    },
+    "subsets": {
+      "draws": 1000,
+      "subset_size": 12,
+      "seed": 20261101,
+      "p5": 0.3413662021380857,
+      "p50": 0.4994978822196964,
+      "p95": 0.6591812801900818,
+      "full_universe_percentile": 58.8,
+      "frac_negative": 0.0,
+      "pass": true
+    }
+  },
+  "claim": {
+    "exclusion_bound_sharpe": 0.77,
+    "ci_upper": 1.0539240477160519,
+    "ci_upper_below_bound": false,
+    "ci_upper_below_bound_lo2002": false,
+    "regression_null_at_corrected_crit": true,
+    "readings_agree": false,
+    "exclude_best_survives": false,
+    "subsets_pass": true
+  }
+}

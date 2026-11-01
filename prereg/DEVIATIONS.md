@@ -75,5 +75,185 @@ writing it down is that they should not have to take the correction on trust.
 
 ## After freeze
 
-Nothing yet. The pre-registration was committed and tagged before any strategy return was
-computed.
+Entries 2–8 were written on 2026-11-01, the day the backtest was first run. The choices they
+record were fixed in `src/backtest.py` before that run; the write-up followed immediately
+after it, with the numbers in hand. That is stated plainly because it is the weaker
+position: a choice fixed before the run can be checked against the result, but a choice
+described after it cannot be distinguished from one made to suit it. Where an entry claims
+a choice did not matter, the claim is a measurement taken from the run, not a prediction.
+
+None of them changes the data, the universe, the window or the estimator that was run.
+Entries 6–8 affect what can be claimed from it.
+
+### Entry 2 — the Sharpe interval was never specified
+
+**What the document says.** §5.1 quotes an MDE in Sharpe units and §1.2 quotes an exclusion
+bound of 0.77. Neither names an interval, and the claim as written is a threshold on one.
+
+**Decision.** Primary: stationary block bootstrap on the weekly portfolio returns, mean
+block 13 weeks, 20,000 resamples, seed 20261101, 95% percentile interval. Secondary: the
+Lo (2002) interval with skew and kurtosis correction, reported alongside.
+
+**Why the block.** The signal is a 52-week trailing sum, so the sign of the position
+persists across long runs and weekly returns are not iid. An iid bootstrap would narrow the
+interval, and a narrower interval makes the exclusion bound easier to claim — the one
+direction this choice must not flatter.
+
+**Cost.** The interval is the claim. The two constructions agree to 0.001 (upper bounds
+1.054 and 1.053), so the choice is immaterial to the decision. That was checked after the
+fact, not assumed.
+
+### Entry 3 — "time-clustered" standard errors were never defined
+
+**What the document says.** §3.3 requires time-clustered standard errors. It does not name
+a kernel, a bandwidth or a cluster estimator.
+
+**Decision.** Newey–West with a Bartlett kernel at lag 52 — the estimator used by the power
+study that produced 2.152 (`src/power_sim.py::regression_t`). Any other estimator would be
+compared to a critical value calibrated for this one, which would make the correction
+meaningless.
+
+**Cost.** Measured on the same panel: t = 2.079 at lag 52, 1.656 at lag 5 (the bandwidth
+§10 quotes for T = 260), 1.641 for a CR1 time-cluster sandwich. The distance from 2.152 is
+therefore a property of the bandwidth, not of the market. §10 of the pre-registration
+already flags lag 52 against T = 260 as a likely confound; this confirms it matters. The
+alternate-lag numbers are **not** valid substitutes — their null distributions have not
+been calibrated — so only the lag-52 figure is compared to 2.152.
+
+### Entry 4 — the regressor's units were never fixed
+
+**What the document says.** §3.1 defines the signal as the 52-week trailing total return;
+§3.3 says what to regress it on but not in what units.
+
+**Decision.** Primary: the signal divided by its own rolling annualised σ, because that is
+what the simulation used (`src/power_sim.py::pairs`), and 0.77 and 2.152 were calibrated on
+it. Variant: the raw 52-week return, reported alongside.
+
+**Cost.** t = 2.079 standardised, 1.766 raw. Neither rejects at 2.152. The 0.31 gap is
+larger than the 0.07 margin the primary clears the threshold by, so the variant is reported
+rather than dropped.
+
+### Entry 5 — "the best instrument" was never defined
+
+**What the document says.** §6.1 requires excluding "the best instrument" and names the
+cross-sectional axis, without saying what makes one instrument best.
+
+**Decision.** Highest standalone annualised Sharpe on that instrument's own sign/σ strategy
+over the same window; the check recomputes both the interval and the regression on the
+remaining 17.
+
+**Cost.** None to the decision. QQQ is best (standalone Sharpe 0.756); removing it moves the
+portfolio to 0.455, which does not change either reading. Recorded because the check's
+meaning depends on the definition, and the definition was chosen after seeing the data.
+
+### Entry 6 — the decision rule is not stated, and the one the document implies is wrong
+
+**What the document says.** §1.2 and §5.1: the MDE at 80% power is 0.77, therefore "a null
+result excludes a live effect above 0.77". §9 then reads a null as "Effect excluded above
+0.77".
+
+**Why that does not follow.** A test with 80% power at 0.77 misses an effect of exactly 0.77
+one time in five. Failing to reject therefore does not exclude 0.77; it fails to detect it.
+Exclusion comes from an interval on the effect, not from the power figure. The document's
+phrasing turns a statement about the design's resolution into a statement about the effect,
+which is the error §0.2 and §3.4 were written to prevent — in the opposite direction.
+
+The document also never says which statistic carries the claim: the regression's failure to
+reject, or an interval on the realised Sharpe.
+
+**Decision.** Both are computed and reported. The interval governs the exclusion bound,
+because a bound is a statement about effect size. Where the two disagree, the bound is not
+claimed.
+
+**Cost.** This is the claim. With a realised Sharpe of +0.53 and a 95% interval of
+[0.04, 1.05], the upper bound is 1.05: **the pre-registered exclusion bound of 0.77 is not
+established.** The regression fails to reject at 2.152, which under §1.2's prose would have
+licensed reporting "excluded above 0.77". Reporting that sentence would have been wrong, and
+the two statistics disagreeing is the evidence that it is wrong.
+
+§9's outcome table has no row for this result either. It offers "null", "positive inside the
+published range" and "positive above it", but not "positive and not distinguishable from zero
+at the corrected threshold", which is the row that applies: an estimate of +0.53 with a
+corrected t of 2.079 is a positive point estimate that the registered test cannot separate
+from zero, and it is not a null.
+
+### Entry 7 — σ is estimated here and was fixed in the calibration
+
+**What happened.** The power study standardised the signal by each instrument's full-sample
+σ — a constant. A backtest cannot do that: a full-sample σ is a look-ahead, so §3.2's
+rolling 52-week σ is estimated inside the sample. The calibration's 0.77 and 2.152
+therefore describe a regressor with less estimation noise than the one that was run, and
+the true size of the adopted test is not known to be 5%.
+
+**Not resolved.** Resolving it means rerunning the power simulation with a rolling σ, which
+is a post-freeze change to the design inputs and would need its own entry and its own cost.
+It is left recorded rather than quietly patched.
+
+**Cost.** None to the headline, which fails on the interval regardless. It does mean the
+secondary claim "the regression is correctly sized at 2.152" is unverified.
+
+### Entry 8 — the Sharpe the MDE is measured on is not the Sharpe §3.2 runs
+
+**What happened.** The power study's realised Sharpe is `mean(z·y)/std(z·y)` with z the
+standardised signal (`src/study3.py::strat_sr`) — a portfolio weighted by signal magnitude.
+§3.2 runs `sign(signal)/σ` — a portfolio weighted by sign and inverse volatility. These are
+different portfolios, so 0.77 is expressed in the units of one and the result in the units
+of the other.
+
+**Measured on the frozen panel.** Signal-weighted +0.545; inverse-vol sign/σ as run +0.526;
+equal-weight sign +0.449. The first two are within 4% of each other on this sample, so for
+the portfolio that was actually run the translation is mild — 0.77 in the simulation's units
+is roughly 0.74 in its units. The equal-weight sign portfolio sits 18% below the
+signal-weighted one, so a sentence that says only "0.77 realised Sharpe" could mean anything
+from about 0.64 to 0.77 depending on which portfolio it is read against.
+
+**Not resolved**, because resolving it means re-deriving the MDE on the portfolio that is
+run, which is a rerun of §5 after freeze.
+
+**Cost.** It does not change the decision: the interval's upper bound (1.05) is above 0.77
+and above every translated bound in that range, so no exclusion is supportable either way.
+It does mean the sentence "the minimum detectable effect is 0.77 realised Sharpe" cannot be
+carried into the write-up without saying which portfolio the MDE is measured on — and the
+pre-registration does not say.
+
+---
+
+## Run record
+
+**2026-11-01.** `src/backtest.py` first run. Snapshot `20261101T130536Z-44dced9f`, panel
+SHA-256 verified `44dced9f…c603c1` before load; 826 weekly closes, 774 signal observations,
+773 portfolio weeks; B recomputed 4.04 (signal) against the registered 4.04. No data was
+re-pulled, regenerated or amended. Output `results/backtest.json`.
+
+Result: realised Sharpe **+0.526**, 95% interval [0.038, 1.054]; regression t = **+2.079**
+against the corrected critical value 2.152; exclude-QQQ +0.455; 1,000 subsets of 12, p5
++0.341, full-universe percentile 58.8. No exclusion claimed.
+
+---
+
+## Repository defects found during the build
+
+Not deviations from the pre-registration; defects in the artefacts the pre-registration
+points at. Recorded so they are fixed deliberately rather than discovered by a reader.
+
+1. **`data/snapshot_manifest.json` carries the superseded audit.** Its `total_return_audit`
+   block has the v1 schema and the v1 numbers — USO 7.854, EWJ 3.018, BWX 0.4976 — which are
+   the failures DEVIATIONS entry 1 identifies and corrects. `data/audit.json` (v2) and
+   §2.5 disagree with it. Cause: `fetch_data.py` wrote the manifest before aborting on the
+   v1 audit, and it short-circuits on an existing snapshot, so the manifest was never
+   regenerated after the correction. A reader who trusts the manifest concludes the panel
+   failed its own audit.
+2. **`data/snapshot_manifest.json` has an empty `stooq_crosscheck`.** §2.1 says the failure
+   is recorded per instrument as `unavailable` for all eighteen; the manifest records
+   nothing.
+3. **`data/SOURCES.md` §3 describes the v1 audit as the method** — non-split days only,
+   tolerance 1e-6 — which entry 1 calls a defect on three counts.
+4. **`v0.1-prereg` is not on the remote.** The annotated tag exists locally (2d3ab67,
+   2026-11-01 18:57 +0530, before the OSF registration at 14:15Z) but `git ls-remote --tags`
+   returns nothing, so the repository publishes one timestamp, not the two that README and
+   §12 claim. Fix is a tag push; it must not be re-created or moved.
+5. **`src/` cannot be run from a fresh clone.** `src/power_sim.py` reads
+   `artefact1/breadth_snapshot_2005.csv` and imports `breadth`, whose `OUTDIR` is
+   `artefact1`; neither exists in the repository. §12 claims the code producing §4 and §5 is
+   committed, which is true, but it does not run without an uncommitted scratch directory.
+

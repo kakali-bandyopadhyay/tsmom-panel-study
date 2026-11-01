@@ -179,231 +179,207 @@
   },
   "total_return_audit": [
     {
-      "ticker": "SPY",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 63,
-      "max_abs_dev_non_split": 0.007154328648514698,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 6.960413758988921e-05
-    },
-    {
-      "ticker": "QQQ",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 65,
-      "max_abs_dev_non_split": 0.00562172041551022,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 3.398138743589496e-05
-    },
-    {
-      "ticker": "IWM",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 63,
-      "max_abs_dev_non_split": 0.008637414106259851,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 5.339945757743505e-05
-    },
-    {
-      "ticker": "EFA",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 32,
-      "max_abs_dev_non_split": 0.024556055666751776,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 0.00011884833976446362
-    },
-    {
-      "ticker": "EEM",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 33,
-      "max_abs_dev_non_split": 0.02117816566617149,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 8.382691448190857e-05
-    },
-    {
-      "ticker": "EWJ",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [
-        "2016-11-07"
-      ],
-      "n_split_days": 1,
-      "n_dividend_days": 31,
-      "max_abs_dev_non_split": 3.0175686591274657,
-      "max_abs_split_day_jump_in_adj": 0.007067851374225942,
-      "mean_daily_div_yield": 7.210063506216729e-05
-    },
-    {
-      "ticker": "TLT",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 189,
-      "max_abs_dev_non_split": 0.004272663000791793,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 0.00011435813196060812
-    },
-    {
-      "ticker": "IEF",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 189,
-      "max_abs_dev_non_split": 0.0036050834602568095,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 8.842723428545874e-05
-    },
-    {
-      "ticker": "TIP",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 130,
-      "max_abs_dev_non_split": 0.01288098621929424,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 0.00010431256829260847
-    },
-    {
-      "ticker": "LQD",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 189,
-      "max_abs_dev_non_split": 0.004312243950599217,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 0.00014364654554217427
-    },
-    {
       "ticker": "BWX",
       "rows": 3981,
       "first": "2011-01-03",
       "last": "2026-10-30",
-      "split_days": [
-        "2016-09-29"
-      ],
-      "n_split_days": 1,
       "n_dividend_days": 152,
-      "max_abs_dev_non_split": 0.497584541065507,
-      "max_abs_split_day_jump_in_adj": 0.0013802622501811745,
-      "mean_daily_div_yield": 5.529567147083045e-05
-    },
-    {
-      "ticker": "GLD",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 0,
-      "max_abs_dev_non_split": 0.0,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 0.0
-    },
-    {
-      "ticker": "SLV",
-      "rows": 3981,
-      "first": "2011-01-03",
-      "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
-      "n_dividend_days": 0,
-      "max_abs_dev_non_split": 0.0,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 0.0
+      "n_split_days": 1,
+      "max_abs_dev": 4.966027589148325e-12,
+      "p999_abs_dev": 4.397390007682134e-12
     },
     {
       "ticker": "DBC",
       "rows": 3981,
       "first": "2011-01-03",
       "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
       "n_dividend_days": 6,
-      "max_abs_dev_non_split": 0.0532043745228215,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 4.283309113721984e-05
+      "n_split_days": 0,
+      "max_abs_dev": 9.441558646017256e-12,
+      "p999_abs_dev": 8.07946443082132e-12
     },
     {
-      "ticker": "USO",
+      "ticker": "EEM",
       "rows": 3981,
       "first": "2011-01-03",
       "last": "2026-10-30",
-      "split_days": [
-        "2020-04-29"
-      ],
+      "n_dividend_days": 33,
+      "n_split_days": 0,
+      "max_abs_dev": 3.745781462782816e-12,
+      "p999_abs_dev": 3.4403722093401453e-12
+    },
+    {
+      "ticker": "EFA",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 32,
+      "n_split_days": 0,
+      "max_abs_dev": 2.729816372948335e-12,
+      "p999_abs_dev": 2.488467876204936e-12
+    },
+    {
+      "ticker": "EWJ",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 31,
       "n_split_days": 1,
-      "n_dividend_days": 0,
-      "max_abs_dev_non_split": 7.854460093896715,
-      "max_abs_split_day_jump_in_adj": 0.05633802816901423,
-      "mean_daily_div_yield": 0.0
+      "max_abs_dev": 3.340439036492171e-12,
+      "p999_abs_dev": 3.1058813299011995e-12
     },
     {
       "ticker": "FXE",
       "rows": 3981,
       "first": "2011-01-03",
       "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
       "n_dividend_days": 57,
-      "max_abs_dev_non_split": 0.001999780083450692,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 1.4105391463591341e-05
+      "n_split_days": 0,
+      "max_abs_dev": 1.0891287871572786e-12,
+      "p999_abs_dev": 1.0176887110802119e-12
     },
     {
       "ticker": "FXY",
       "rows": 3981,
       "first": "2011-01-03",
       "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
       "n_dividend_days": 0,
-      "max_abs_dev_non_split": 0.0,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 0.0
+      "n_split_days": 0,
+      "max_abs_dev": 0.0,
+      "p999_abs_dev": 0.0
+    },
+    {
+      "ticker": "GLD",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 0,
+      "n_split_days": 0,
+      "max_abs_dev": 0.0,
+      "p999_abs_dev": 0.0
+    },
+    {
+      "ticker": "IEF",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 189,
+      "n_split_days": 0,
+      "max_abs_dev": 1.358357870628879e-12,
+      "p999_abs_dev": 1.2814322936094454e-12
+    },
+    {
+      "ticker": "IWM",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 63,
+      "n_split_days": 0,
+      "max_abs_dev": 1.514455227891176e-12,
+      "p999_abs_dev": 1.4223332511775778e-12
     },
     {
       "ticker": "IYR",
       "rows": 3981,
       "first": "2011-01-03",
       "last": "2026-10-30",
-      "split_days": [],
-      "n_split_days": 0,
       "n_dividend_days": 63,
-      "max_abs_dev_non_split": 0.01419355067259688,
-      "max_abs_split_day_jump_in_adj": 0.0,
-      "mean_daily_div_yield": 0.00012931365051271993
+      "n_split_days": 0,
+      "max_abs_dev": 2.8972380050618085e-12,
+      "p999_abs_dev": 2.7490520970729914e-12
+    },
+    {
+      "ticker": "LQD",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 189,
+      "n_split_days": 0,
+      "max_abs_dev": 1.4357404154452524e-12,
+      "p999_abs_dev": 1.4067271791873288e-12
+    },
+    {
+      "ticker": "QQQ",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 65,
+      "n_split_days": 0,
+      "max_abs_dev": 1.885158695813516e-12,
+      "p999_abs_dev": 1.7074216485113455e-12
+    },
+    {
+      "ticker": "SLV",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 0,
+      "n_split_days": 0,
+      "max_abs_dev": 0.0,
+      "p999_abs_dev": 0.0
+    },
+    {
+      "ticker": "SPY",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 63,
+      "n_split_days": 0,
+      "max_abs_dev": 1.0245138071240945e-12,
+      "p999_abs_dev": 9.601273109893803e-13
+    },
+    {
+      "ticker": "TIP",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 130,
+      "n_split_days": 0,
+      "max_abs_dev": 1.2780887459484802e-12,
+      "p999_abs_dev": 1.180634479069909e-12
+    },
+    {
+      "ticker": "TLT",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 189,
+      "n_split_days": 0,
+      "max_abs_dev": 1.6679990721968352e-12,
+      "p999_abs_dev": 1.4610483933808026e-12
+    },
+    {
+      "ticker": "USO",
+      "rows": 3981,
+      "first": "2011-01-03",
+      "last": "2026-10-30",
+      "n_dividend_days": 0,
+      "n_split_days": 1,
+      "max_abs_dev": 0.0,
+      "p999_abs_dev": 0.0
     }
   ],
   "stooq_crosscheck": [],
   "environment": {
     "python": "3.14.7",
     "pandas": "3.0.5"
+  },
+  "audit_correction": {
+    "superseded": "v1 (this manifest, as written by fetch_data.py before it aborted)",
+    "v1_worst_deviation": 7.854460093896715,
+    "v1_defects": [
+      "split rows removed before pct_change, so the row after a split spanned it (USO/EWJ/BWX reported deviations equal to their split ratios)",
+      "implied return formed as price_return * (1 + div/close_prev) instead of (close + divCash)/close_prev * splitFactor - 1",
+      "tolerance 1e-6 on a daily return, which no instrument carrying distributions could satisfy"
+    ],
+    "v2_method": "(close + divCash) / close_prev * splitFactor - 1 vs adjClose pct_change",
+    "v2_tolerance": 1e-09,
+    "v2_worst_deviation": 9.441558646017256e-12,
+    "v2_passed": true,
+    "authoritative_record": "data/audit.json",
+    "narrative": "prereg/DEVIATIONS.md entry 1",
+    "data_unchanged": true,
+    "panel_sha256_before": "44dced9f55ace2997ad17bbbec5202d472810d342fd14e583ba5af48d8c603c1",
+    "note": "No data was re-pulled. The panel hash is identical before and after this correction; only the verification record changed."
   }
 }
