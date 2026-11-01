@@ -1,7 +1,17 @@
 # tsmom-panel-study
 
 A pre-registered test of time-series momentum across a cross-asset panel of eighteen liquid
-ETFs, 2011–2026, asking whether the effect has decayed to a magnitude at or below zero.
+ETFs, 2011–2026, asking whether the effect has decayed below detectability.
+
+## Identifiers
+
+- **OSF pre-registration:** `10.17605/OSF.IO/REGISTRATIONID`
+- **ORCID:** https://orcid.org/0000-0002-6130-9816
+- **Git tag:** `v0.1-prereg` (commit `2d3ab67`)
+
+The design was frozen and registered before any strategy return was computed. Two independent
+timestamps exist — the Git tag and the OSF registration — neither of which can be altered
+after the fact.
 
 This is not a replication of Moskowitz, Ooi & Pedersen (2012). MOP tested a broad futures
 panel across four decades and their return includes a roll yield that an ETF construction
@@ -45,4 +55,6 @@ of this commit.
 
 ## Licence
 
-MIT — see `LICENSE`.
+Code: MIT — see `LICENSE`.
+
+Documents and pre-registration text: CC-BY 4.0 (see the OSF registration).
