@@ -278,6 +278,37 @@ study where it failed.
 
 ---
 
+### Entry 10 — §2.1 states a per-instrument cross-check record that the run never produced
+
+**What §2.1 says.** "A Stooq cross-check was attempted and refused: Stooq returns a JavaScript
+challenge page rather than CSV on every URL form tried, so the cross-check is recorded in the
+manifest as `unavailable` for all eighteen instruments."
+
+**What the artifacts show.** The pull was run with `--skip-stooq`. `fetch_data.py` initialises
+`stooq_rows = []` and fills it only inside `if not args.skip_stooq:`, so an empty list in the
+manifest is the signature of a loop that never ran — had it run, it would have written eighteen
+rows whatever their status. No request was made for any instrument and no response was
+received. The HTML challenge was seen by a separate probe in the same session, which is
+presumably where the sentence came from, but that probe was not the pull and recorded nothing
+per instrument.
+
+**What was wrong for one commit.** The defect-2 fix wrote eighteen `"unavailable"` records
+into the manifest, reasoning from the code's failure branch and from that probe. The provenance
+block disclosed the reconstruction, but the records themselves still asserted a per-instrument
+response — and disclosing an invented record does not make it a record. Reverted the same day;
+`stooq_crosscheck` is empty again.
+
+**Cost to the claim.** None to the numbers: the cross-check never entered the inference, and
+§11 already lists "single vendor, no independent cross-check" as a threat. The cost is to
+§2.1's accuracy, and to any reader who treats the manifest as a log of requests made. The gap
+is now visible; before, §2.1 said the record existed, so nobody had reason to look for it.
+
+**Why recorded rather than repaired.** A genuine per-instrument record requires running the
+cross-check against the frozen snapshot. That has not been done, and writing the records
+without doing it is the error this entry documents.
+
+---
+
 ## Corrections to the repository defect list
 
 **Defect 1 — FIXED 2026-11-01.** `data/snapshot_manifest.json` now carries the v2 audit
@@ -293,13 +324,12 @@ inferred from an `ls-remote` that failed with `SEC_E_NO_CREDENTIALS` — a crede
 not a missing ref. **A failed network call is not evidence of absence.** Both timestamps are
 public and the claim in README and §12 stands.
 
-**Defect 2 — FIXED 2026-11-01.** `data/snapshot_manifest.json` now records the Stooq
-cross-check per instrument: eighteen records, `"status": "unavailable"`, which is what §2.1
-requires. A `stooq_crosscheck_provenance` block states that the records were reconstructed —
-the pull-time manifest wrote an empty list — and that no comparison was obtained for any
-instrument. The status follows `fetch_data.py::crosscheck_stooq()`'s failure branch, which is
-what actually happened for all eighteen URL forms tried; no correlation, overlap or level
-ratio is invented.
+**Defect 2 — NOT FIXED; recorded as a gap.** A first attempt wrote eighteen `"unavailable"`
+records into `stooq_crosscheck`. That was wrong and has been reverted: the pull ran with
+`--skip-stooq`, so no per-instrument request was made and no response was received, and the
+records asserted an event that did not happen. `stooq_crosscheck` is empty again — the true
+state — and `stooq_crosscheck_provenance` in the manifest records what happened, why it
+matters, and that it was not backfilled. The misstatement in §2.1 is entry 10.
 
 **Defect 3 — FIXED 2026-11-01** (by the author). `data/SOURCES.md` §3 now documents the v2
 audit as the method — full series including split days, split factor applied, tolerance 1e-9,
