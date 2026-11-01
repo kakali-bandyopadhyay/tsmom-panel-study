@@ -38,6 +38,8 @@ advance is the point.
 |---|---|
 | `prereg/PREREGISTRATION.md` | The frozen design, committed before any strategy return was computed |
 | `prereg/DEVIATIONS.md` | Dated departures from it, with the cost to the claim |
+| `RESULTS.md` | The first result, post-registration: numbers, the withdrawn bound, and why |
+| `src/backtest.py` | The registered specification, executed against the frozen panel |
 | `scripts/fetch_data.py` | Pull, audit, hash and freeze the data snapshot |
 | `scripts/design_inputs.py` | Recompute breadth on the frozen snapshot; apply the pre-declared rule |
 | `scripts/audit_snapshot.py` | Standalone total-return audit against a frozen snapshot |
@@ -50,8 +52,22 @@ manifest carries the hashes.
 
 ## Status
 
-Pre-registration frozen and tagged `v0.1-prereg`. No strategy returns computed at the time
-of this commit.
+Pre-registration frozen and tagged `v0.1-prereg`; registered on OSF (DOI above).
+
+**First result, 2026-11-01: the pre-registered exclusion bound is not supported, and is withdrawn.**
+
+Realised Sharpe **+0.526**, 95% interval **[0.038, 1.054]**. Regression t = 2.079 against the
+size-corrected critical value of 2.152 — fail to reject, and it would have "rejected" at the
+nominal 1.96. All 1,000 random subsets are positive (p5 +0.341), so the result is not
+composition-driven.
+
+The estimate is positive and material at roughly half the pre-decay magnitude, but this design
+cannot separate it from zero: its minimum detectable effect was 0.77, and the interval's upper
+bound of 1.05 excludes neither 0.77 nor the historical value.
+
+The pre-registration's §1.2 stated that a null would exclude a live effect above 0.77. That is
+false at 80% power — the test misses 0.77 one time in five — and the sentence is withdrawn in
+`RESULTS.md`, which also explains why the design was not at fault, only the claim made for it.
 
 ## Licence
 
