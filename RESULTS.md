@@ -67,7 +67,7 @@ Not patched, disclosed. Both are recorded in `prereg/DEVIATIONS.md`.
 
 Under-specification resolved before running — the Sharpe interval's construction, the SE
 definition, the regressor's units, the definition of "best instrument", and the decision rule —
-is recorded as entries 2–7, each with its measured cost.
+is recorded as entries 2–6, each with its measured cost.
 
 ## What follows
 

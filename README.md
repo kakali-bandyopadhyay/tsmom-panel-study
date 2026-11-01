@@ -21,16 +21,20 @@ a narrower, related effect, declared as such in `prereg/PREREGISTRATION.md` §1.
 ## What makes it worth reading
 
 The design was measured before it was run. Effective breadth came out at **B = 4.04** — the
-eighteen instruments contain about four independent bets, not eighteen — so a breadth gate
-of B ≥ 8 failed and the study was narrowed rather than overclaimed. A simulation puts the
-minimum detectable effect at **0.77 realised Sharpe**, which means the result will be a bound,
-not a verdict:
+eighteen instruments contain about four independent bets, not eighteen — so a breadth gate of
+B ≥ 8 failed and the study was narrowed rather than overclaimed.
+
+**The pre-run expectation, recorded before the result, was this:**
 
 > A null excludes a live effect above 0.77. It does not establish that the effect is zero, and
 > it does not resolve the 0.2–0.5 band.
 
-A portfolio-level test at this breadth simply cannot answer the decay question. Saying so in
-advance is the point.
+**That expectation did not survive the run — and its second sentence was wrong when it was
+written.** A design with 80% power at 0.77 misses 0.77 one time in five, so a non-rejection
+cannot exclude it. The bound was withdrawn. See **Status** below and [`RESULTS.md`](RESULTS.md).
+
+What survives is the part that was right: a portfolio-level test at this breadth cannot answer
+the decay question. The study now says so with a measured interval instead of an assumed bound.
 
 ## Contents
 

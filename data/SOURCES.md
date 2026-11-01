@@ -30,21 +30,36 @@ That is a lookahead vector: a threshold, a notional, or a stop expressed in adju
 units would be conditioned on the future. Ratios are invariant to the factor and therefore
 safe; levels are not. All signals are built from ratios.
 
-## 3. Why the audit exists
+## 3. Why the audit exists, and what its first version got wrong
 
-`scripts/fetch_data.py` does not take `adjClose` on trust. For every instrument it checks,
-on non-split days only, that
+`scripts/audit_snapshot.py` does not take `adjClose` on trust. For every instrument it checks,
+on the **full series including split days**, that
 
-    adjClose_t / adjClose_{t-1}  ==  (close_t / close_{t-1}) * (1 + divCash_t / close_{t-1})
+    adjClose_t / adjClose_{t-1} - 1  ==  (close_t + divCash_t) / close_{t-1} * splitFactor_t - 1
 
-which is what "dividends reinvested, splits absorbed" must mean in price space. Split days
-are excluded from that identity because the `close` ratio is not a return across a split;
-on those days the check is instead that `adjClose` has **no jump**, i.e. the split was
-absorbed. A tolerance of 1e-6 is enforced, and the pull aborts rather than freezing a
-snapshot whose total-return series does not reconcile.
+Tolerance **1e-9**. Worst observed deviation across the eighteen instruments: **9.44e-12**.
+The pull refuses to freeze a snapshot that does not reconcile.
+
+**The first version of this audit was wrong in three ways and failed fifteen of eighteen
+instruments as a result.**
+
+1. It removed split rows before computing the return, so the row following a split computed its
+   return against the row *before* the split — spanning it. USO (1:8), EWJ (4:1) and BWX (2:1)
+   reported deviations equal to their split ratios, which is what identified the cause.
+2. It formed the implied return as `price_return × (1 + divCash/close_prev)`, which leaves a
+   residual of roughly the dividend yield, instead of `(close + divCash)/close_prev ×
+   splitFactor − 1`.
+3. It enforced a tolerance of 1e-6 on a daily return, which no instrument carrying distributions
+   could satisfy at any data quality.
+
+Those were defects in the audit, not in the data. **No data was re-pulled**, and the panel
+SHA-256 is unchanged (`44dced9f…c603c1`). The correction is recorded in `prereg/DEVIATIONS.md`
+entry 1; the authoritative audit output is `data/audit.json`; and `data/snapshot_manifest.json`
+carries an `audit_correction` block naming the superseded v1 numbers.
 
 This is a correctness gate on the data, in the same spirit as the 1e-5 gate on artefact 2's
-native evaluator: the claim rests on it, so it is tested rather than assumed.
+native evaluator: the claim rests on it, so it is tested rather than assumed — and when the gate
+itself proved faulty, the gate was corrected and the correction published.
 
 ## 4. The cross-check, and what it can and cannot verify
 
