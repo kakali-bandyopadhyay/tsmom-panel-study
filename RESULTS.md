@@ -28,16 +28,18 @@ W-FRI rebalance, **time fixed effects only**, time-clustered standard errors.
 | Random subsets of 12 (1,000 draws, seed 20261101) | all positive; p5 **+0.341**; full-universe percentile **58.8** |
 | Excluding QQQ | +0.455 [−0.033, 0.977], t 1.685 |
 
-The two interval constructions agree closely, so the interval is not an artefact of the
-bootstrap.
+The two interval constructions agree closely in width and centre. They differ at the lower
+bound, where the bootstrap excludes zero at 0.04 and Lo (2002) marginally includes it
+at −0.001.
 
 ## Why the bound is withdrawn
 
 §1.2 states: *"A null result excludes a live effect above 0.77."* **That is false on its own
 terms.** 80% power at 0.77 means the test misses an effect of 0.77 one time in five, so a
 non-rejection cannot exclude it. An exclusion requires the **interval's upper bound** to sit
-below the threshold, and here the upper bound is **1.05** — which fails to exclude 0.77, and
-also fails to exclude the pre-decay historical magnitude of roughly 1.0.
+below the threshold, and here the upper bound is **1.05** — which fails to exclude 0.77. The
+interval spans 0.04 to 1.05 under the bootstrap and −0.001 to 1.05 under Lo (2002); it excludes
+neither a negligible effect nor an effect at the pre-registered bound.
 
 The design is not at fault. The sentence describing what a null would establish was.
 
@@ -48,10 +50,11 @@ material at roughly 0.5 Sharpe, and robust to composition — every one of 1,000
 positive and the full universe sits at the 58.8th percentile of that distribution, so the
 result is not an artefact of which eighteen instruments were chosen.
 
-**It establishes that this design cannot separate an effect of that size from zero.** The
-estimate falls in the 55.5%-power bracket of the study's own power analysis — a range
-§4.3 predicted would be unresolvable, and which the study therefore should have expected to
-encounter.
+**It establishes that this design cannot resolve an effect of that size with confidence.** The
+interval runs from the boundary of zero to 1.05, so it is compatible both with a negligible
+effect and with one at the pre-registered 0.77 bound. The estimate falls in the 55.5%-power
+bracket of the study's own power analysis — a range §4.3 predicted would be unresolvable, and
+which the study therefore should have expected to encounter.
 
 ## Disclosed implementation mismatches
 

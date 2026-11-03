@@ -352,3 +352,56 @@ committed script regenerates that exact pull — `src/breadth.py` fetches a diff
 not reproducible from a bare clone. Recorded rather than papered over, because committing the
 return series would be committing the vendor data the licence terms forbid.
 
+---
+
+## Post-run content corrections
+
+Two statements in `RESULTS.md` were wrong. Neither affects a number in the results table; both
+affect what the results are said to establish. Recorded because a document whose argument is
+that claims must be checkable has to apply that standard to itself.
+
+### Entry 11 — an uncited literature figure
+
+**When:** 2026-11-03, after the run. **Status:** fixed.
+
+**What was claimed.** The section on why the bound was withdrawn ended: *"…which fails to
+exclude 0.77, and also fails to exclude the pre-decay historical magnitude of roughly 1.0."*
+
+**What was wrong.**
+
+1. **No source.** "Roughly 1.0" appeared without a citation, in a document whose argument is that
+   claims should not be taken on trust. It was the only unsourced number in `RESULTS.md`.
+2. **Not a like-for-like comparison.** The figure conventionally meant is the diversified
+   time-series momentum portfolio in Moskowitz, Ooi & Pedersen (2012), *Journal of Financial
+   Economics* 104(2), which sits at roughly 1.0–1.2 depending on weighting and sample, over 58
+   futures from 1965. This study is 18 ETFs over 2011–2026. Asserting comparability invites an
+   objection the document would then have had to concede.
+
+**What replaced it.** The study's own interval bounds, which require no external reference:
+0.04 to 1.05 under the bootstrap, −0.001 to 1.05 under Lo (2002). The sentence now states that
+the interval excludes neither a negligible effect nor an effect at the pre-registered bound.
+
+**Why it matters.** One uncited figure is enough for a reader to discount every other number in
+the repository.
+
+### Entry 12 — "cannot separate an effect of that size from zero" overstated the lack of resolution
+
+**When:** 2026-11-03. **Status:** fixed.
+
+**What was claimed.** *"It establishes that this design cannot separate an effect of that size
+from zero."*
+
+**What was wrong.** The bootstrap interval's lower bound is **0.038**, above zero; the Lo (2002)
+interval's is **−0.001**, marginally below it. One construction excludes zero and the other does
+not. "Cannot separate from zero" is true of one and false of the other, and the sentence applied
+it to both.
+
+**What replaced it.** A statement of the actual limitation: the interval runs from the boundary
+of zero to 1.05, so it is compatible both with a negligible effect and with one at the
+pre-registered 0.77 bound, and the design cannot resolve an effect of that size with confidence.
+
+**Note.** This error ran in the direction of *understating* the result. Under-claiming is an
+accuracy failure like any other, and it is the third time this work has produced it — the
+withdrawn exclusion bound, the approver-versus-handoff definition in the companion case study,
+and this sentence.
+
